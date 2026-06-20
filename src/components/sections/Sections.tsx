@@ -1,6 +1,22 @@
 import { motion } from "motion/react";
 import { SectionHeader } from "@/components/SectionHeader";
 import emailjs from "@emailjs/browser";
+import etheal from "@/assets/etheal-logo.jpg";
+import getahun from "@/assets/getahun-assefa.png";
+import hema from "@/assets/hema.png";
+import bright from "@/assets/bright.png";
+import makiba from "@/assets/makiba.png";
+import gojo from "@/assets/gojo.jpg";
+import hemalogo from "@/assets/hema-logo.jpeg";
+import lentebur from "@/assets/lentebur.jpg";
+import maedot from "@/assets/maedot.jpg";
+import makilogo from "@/assets/makiba-logo.jpg";
+import mdlogo from "@/assets/md-logo.jpg";
+import mdd from "@/assets/md2.png";
+import mdmedical from "@/assets/mdmedical.png";
+import mema from "@/assets/mema.jpg";
+import negarit from "@/assets/negarit.png";
+import wakene from "@/assets/WakeneLogo.jpg";
 import {
   Code2, Smartphone, Palette, Server, Workflow, Layers, Github, ExternalLink,
   Briefcase, Award, Star, Check, MessageSquare, Mail, MapPin, Phone, Send,
@@ -185,42 +201,42 @@ const projects = [
     title: "Getahun Assefa",
     tag: "Portfolio Website",
     desc: "Personal portfolio for 20-30  TV Show host Getahun Assefa. Showcasing his work and achievements.",
-    image: "/images/getahun-assefa.png",
+    image: {getahun},
     link: "https://getahunassefa.com"
   },
   {
     title: "Makiba Medication Center",
     tag: "Medical & Booking Website",
     desc: "Complete medical center website with online appointment booking and service information.",
-    image: "/images/makiba.png",
+    image: {makiba},
     link: "https://makibamedication.com/"
   },
   {
     title: "MD Medical Clinic",
     tag: "Medical & Booking Website",
     desc: "Modern clinic website featuring appointment scheduling, doctor profiles, and patient resources.",
-    image: "/images/mdmedical.png",
+    image: {mdmedical},
     link: "https://mdmedicalservice.com/"
   },
   {
     title: "Ethealturf",
     tag: "Business Website",
     desc: "Professional business website with services showcase, company profile, and contact integration.",
-    image: "/images/estamos.png",
+    image: {etheal},
     link: "https://ethealturf.com/"
   },
   {
     title: "Hema Wooden Accessories",
     tag: "Business Website",
     desc: "Handcrafted wooden accessories website with product gallery and brand story.",
-    image: "/images/hema.png",
+    image: {hema},
     link: "https://www.hemawoods.com/"
   },
   {
     title: "Bright E-commerce",
     tag: "E-commerce Website",
     desc: "Full-featured online store with product catalog, cart functionality, and checkout process.",
-    image: "/images/bright.png",
+    image: {bright}
     link: "http://e-com-web-phi.vercel.app/"
   },
 ];
@@ -461,14 +477,14 @@ export function Pricing() {
 
 /* ---------------- Tech Stack Marquee ---------------- */
 const partners = [
-  { name: "MeMa Digital Marketing Agency", logo: "/images/mema.jpg" },
-  { name: "Gojo Guest House", logo: "/images/gojo.jpg" },
-  { name: "Makiba Medication Center", logo: "/images/makiba-logo.jpg" },
-  { name: "Ethealturf", logo: "/images/etheal-logo.jpg" },
-  { name: "Hema Woods", logo: "/images/hema-logo.jpeg" },
-  { name: "Wakene Food Complex", logo: "/images/Wakene Logo.jpg" },
-  { name: "Lentebur Foreign Employment Agency", logo: "/images/lentebur.jpg" },
-  { name: "Maedot ZeGola Consultancy", logo: "/images/maedot.jpg" }
+  { name: "MeMa Digital Marketing Agency", logo: {mema} },
+  { name: "Gojo Guest House", logo: {gojo} },
+  { name: "Makiba Medication Center", logo: {makilogo} },
+  { name: "Ethealturf", logo: {etheal} },
+  { name: "Hema Woods", logo: {hemalogo} },
+  { name: "Wakene Food Complex", logo: {wakene} },
+  { name: "Lentebur Foreign Employment Agency", logo: {lentebur} },
+  { name: "Maedot ZeGola Consultancy", logo: {maedot} }
 ];
 export function Partners() {
   return (
