@@ -31,7 +31,7 @@ function Index() {
     <HelmetProvider>
       {/* Favicon for browser tab */}
       <Helmet>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Helmet>
 
       <div className="relative noise">

@@ -23,7 +23,6 @@ import {
   Quote, Zap, Globe, Database, Cpu, Box, Coffee, Heart, Terminal, Twitter, Linkedin, Instagram, Facebook, Youtube
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { link } from "fs";
 
 /* ---------------- About ---------------- */
 export function About() {
@@ -236,8 +235,8 @@ const projects = [
     title: "Bright E-commerce",
     tag: "E-commerce Website",
     desc: "Full-featured online store with product catalog, cart functionality, and checkout process.",
-    image: {bright}
-    link: "http://e-com-web-phi.vercel.app/"
+    image: {bright},
+    link: "https://e-com-web-phi.vercel.app/"
   },
 ];
 
