@@ -200,42 +200,42 @@ const projects = [
     title: "Getahun Assefa",
     tag: "Portfolio Website",
     desc: "Personal portfolio for 20-30  TV Show host Getahun Assefa. Showcasing his work and achievements.",
-    image: {getahun},
+    image: getahun,
     link: "https://getahunassefa.com"
   },
   {
     title: "Makiba Medication Center",
     tag: "Medical & Booking Website",
     desc: "Complete medical center website with online appointment booking and service information.",
-    image: {makiba},
+    image: makiba,
     link: "https://makibamedication.com/"
   },
   {
     title: "MD Medical Clinic",
     tag: "Medical & Booking Website",
     desc: "Modern clinic website featuring appointment scheduling, doctor profiles, and patient resources.",
-    image: {mdmedical},
+    image: mdmedical,
     link: "https://mdmedicalservice.com/"
   },
   {
     title: "Ethealturf",
     tag: "Business Website",
     desc: "Professional business website with services showcase, company profile, and contact integration.",
-    image: {etheal},
+    image: etheal,
     link: "https://ethealturf.com/"
   },
   {
     title: "Hema Wooden Accessories",
     tag: "Business Website",
     desc: "Handcrafted wooden accessories website with product gallery and brand story.",
-    image: {hema},
+    image: hema,
     link: "https://www.hemawoods.com/"
   },
   {
     title: "Bright E-commerce",
     tag: "E-commerce Website",
     desc: "Full-featured online store with product catalog, cart functionality, and checkout process.",
-    image: {bright},
+    image: bright,
     link: "https://e-com-web-phi.vercel.app/"
   },
 ];
@@ -297,7 +297,7 @@ export function Projects() {
                   <a href={p.link} target="_blank" rel="noopener noreferrer" className="grid h-8 w-8 place-items-center rounded-full glass hover:bg-primary hover:text-white transition-all">
                     <ExternalLink className="h-3.5 w-3.5" />
                   </a>
-                  <a href="#" className="grid h-8 w-8 place-items-center rounded-full glass hover:bg-primary hover:text-white transition-all">
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="grid h-8 w-8 place-items-center rounded-full glass hover:bg-primary hover:text-white transition-all">
                     <Github className="h-3.5 w-3.5" />
                   </a>
                 </div>
@@ -476,14 +476,14 @@ export function Pricing() {
 
 /* ---------------- Tech Stack Marquee ---------------- */
 const partners = [
-  { name: "MeMa Digital Marketing Agency", logo: {mema} },
-  { name: "Gojo Guest House", logo: {gojo} },
-  { name: "Makiba Medication Center", logo: {makilogo} },
-  { name: "Ethealturf", logo: {etheal} },
-  { name: "Hema Woods", logo: {hemalogo} },
-  { name: "Wakene Food Complex", logo: {wakene} },
-  { name: "Lentebur Foreign Employment Agency", logo: {lentebur} },
-  { name: "Maedot ZeGola Consultancy", logo: {maedot} }
+  { name: "MeMa Digital Marketing Agency", logo: mema },
+  { name: "Gojo Guest House", logo: gojo },
+  { name: "Makiba Medication Center", logo: makilogo },
+  { name: "Ethealturf", logo: etheal },
+  { name: "Hema Woods", logo: hemalogo },
+  { name: "Wakene Food Complex", logo: wakene },
+  { name: "Lentebur Foreign Employment Agency", logo: lentebur },
+  { name: "Maedot ZeGola Consultancy", logo: maedot }
 ];
 export function Partners() {
   return (
