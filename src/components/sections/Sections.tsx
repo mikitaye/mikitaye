@@ -242,7 +242,7 @@ const projects: Project[] = [
     title: "Ethealturf",
     tag: "Business Website",
     desc: "Professional business website with services showcase, company profile, and contact integration.",
-    image: "/images/etheal-logo.jpg",
+    image: "/images/estamos.png",
     link: "https://ethealturf.com/",
   },
   {
