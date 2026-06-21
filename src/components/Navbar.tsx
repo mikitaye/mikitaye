@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
+import { BrandMark } from "@/components/sections/Sections";
 
 const links = [
   { href: "#home", label: "Home" },
@@ -43,9 +44,7 @@ export function Navbar() {
           }`}
         >
           <a href="#home" className="flex items-center gap-2 font-display font-bold">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground">
-              M
-            </span>
+            <BrandMark className="h-8 w-8 shrink-0" />
             <span className="hidden sm:inline">Mikiyas <span className="text-primary">Taye</span></span>
           </a>
 
@@ -89,7 +88,10 @@ export function Navbar() {
             className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl md:hidden"
           >
             <div className="flex items-center justify-between p-6">
-              <span className="font-display text-lg font-bold">Mikiyas<span className="text-primary">Taye</span></span>
+              <a href="#home" onClick={() => setOpen(false)} className="flex items-center gap-2 font-display text-lg font-bold">
+                <BrandMark className="h-8 w-8 shrink-0" />
+                <span>Mikiyas<span className="text-primary">Taye</span></span>
+              </a>
               <button onClick={() => setOpen(false)} aria-label="Close menu" className="grid h-10 w-10 place-items-center rounded-full glass">
                 <X className="h-5 w-5" />
               </button>

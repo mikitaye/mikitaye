@@ -1,28 +1,39 @@
 import { motion } from "motion/react";
 import { SectionHeader } from "@/components/SectionHeader";
 import emailjs from "@emailjs/browser";
-import etheal from "@/assets/etheal-logo.jpg";
-import getahun from "@/assets/getahun-assefa.png";
-import hema from "@/assets/hema.png";
-import bright from "@/assets/bright.png";
-import makiba from "@/assets/makiba.png";
-import gojo from "@/assets/gojo.jpg";
-import hemalogo from "@/assets/hema-logo.jpeg";
-import lentebur from "@/assets/lentebur.jpg";
-import maedot from "@/assets/maedot.jpg";
-import makilogo from "@/assets/makiba-logo.jpg";
-import mdlogo from "@/assets/md-logo.jpg";
-import mdd from "@/assets/md2.png";
-import mdmedical from "@/assets/mdmedical.png";
-import mema from "@/assets/mema.jpg";
-import negarit from "@/assets/negarit.png";
-import wakene from "@/assets/WakeneLogo.jpg";
 import {
   Code2, Smartphone, Palette, Server, Workflow, Layers, Github, ExternalLink,
   Briefcase, Award, Star, Check, MessageSquare, Mail, MapPin, Phone, Send,
-  Quote, Zap, Globe, Database, Cpu, Box, Coffee, Heart, Terminal, Twitter, Linkedin, Instagram, Facebook, Youtube
+  Quote, Zap, Globe, Database, Cpu, Box, Coffee, Heart, Terminal, Twitter, Linkedin, Instagram, Facebook, Youtube, ImageOff
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+
+/* ---------------- Brand Mark (logo) ---------------- */
+export function BrandMark({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="Mikiyas Taye logo"
+      className={className}
+    >
+      <rect width="64" height="64" rx="14" fill="var(--primary, #F4C542)" />
+      <text
+        x="50%"
+        y="54%"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        fontFamily="Inter, system-ui, sans-serif"
+        fontWeight="800"
+        fontSize="38"
+        fill="var(--primary-foreground, #0B0B0C)"
+      >
+        M
+      </text>
+    </svg>
+  );
+}
 
 /* ---------------- About ---------------- */
 export function About() {
@@ -195,48 +206,59 @@ export function Services() {
 }
 
 /* ---------------- Projects ---------------- */
-const projects = [
+type Project = {
+  title: string;
+  tag: string;
+  desc: string;
+  image: string;
+  link: string;
+  github?: string;
+};
+
+const projects: Project[] = [
   {
     title: "Getahun Assefa",
     tag: "Portfolio Website",
-    desc: "Personal portfolio for 20-30  TV Show host Getahun Assefa. Showcasing his work and achievements.",
-    image: getahun,
-    link: "https://getahunassefa.com"
+    desc: "Personal portfolio for 20-30 TV Show host Getahun Assefa. Showcasing his work and achievements.",
+    image: "/images/getahun-assefa.png",
+    link: "https://getahunassefa.com",
+    github: "https://github.com/mikiyastaye/getahun-portfolio",
   },
   {
     title: "Makiba Medication Center",
     tag: "Medical & Booking Website",
     desc: "Complete medical center website with online appointment booking and service information.",
-    image: makiba,
-    link: "https://makibamedication.com/"
+    image: "/images/makiba.png",
+    link: "https://makibamedication.com/",
   },
   {
     title: "MD Medical Clinic",
     tag: "Medical & Booking Website",
     desc: "Modern clinic website featuring appointment scheduling, doctor profiles, and patient resources.",
-    image: mdmedical,
-    link: "https://mdmedicalservice.com/"
+    image: "/images/mdmedical.png",
+    link: "https://mdmedicalservice.com/",
   },
   {
     title: "Ethealturf",
     tag: "Business Website",
     desc: "Professional business website with services showcase, company profile, and contact integration.",
-    image: etheal,
-    link: "https://ethealturf.com/"
+    image: "/images/etheal-logo.jpg",
+    link: "https://ethealturf.com/",
   },
   {
     title: "Hema Wooden Accessories",
     tag: "Business Website",
     desc: "Handcrafted wooden accessories website with product gallery and brand story.",
-    image: hema,
-    link: "https://www.hemawoods.com/"
+    image: "/images/hema.png",
+    link: "https://www.hemawoods.com/",
   },
   {
     title: "Bright E-commerce",
     tag: "E-commerce Website",
     desc: "Full-featured online store with product catalog, cart functionality, and checkout process.",
-    image: bright,
-    link: "https://e-com-web-phi.vercel.app/"
+    image: "/images/bright.png",
+    link: "https://e-com-web-phi.vercel.app/",
+    github: "https://github.com/mikiyastaye/bright-ecommerce",
   },
 ];
 
@@ -248,61 +270,11 @@ export function Projects() {
           eyebrow="Selected work"
           title={<>Projects <span className="text-gradient">i have worked on</span></>}
         />
-        
+
         {/* Projects Grid */}
         <div className="grid gap-5 md:grid-cols-6 md:auto-rows-[430px]">
           {projects.map((p, i) => (
-            <motion.article
-              key={p.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.07 }}
-              className={`group relative overflow-hidden rounded-3xl glass p-0 ${
-                "md:col-span-2"
-              }`}
-            >
-              {/* Your existing hover effects */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="absolute -bottom-20 -right-20 h-56 w-56 rounded-full bg-primary/30 blur-3xl opacity-30 transition-all duration-700 group-hover:opacity-60 group-hover:scale-125" />
-              
-              {/* Image at the TOP */}
-              <div className="relative h-60 w-full overflow-hidden">
-                <img 
-                  src={p.image} 
-                  alt={p.title}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              </div>
-              
-              {/* Content below image */}
-              <div className="p-5">
-                <div className="flex items-center justify-between text-xs">
-                  <span className="rounded-full bg-primary/15 px-3 py-1 text-primary">
-                    {p.tag}
-                  </span>
-                  <span className="font-mono text-muted-foreground">0{i + 1}</span>
-                </div>
-                
-                <h3 className="mt-4 font-display font-bold text-xl">
-                  {p.title}
-                </h3>
-                
-                <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-                  {p.desc}
-                </p>
-                
-                <div className="mt-3 flex gap-2">
-                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="grid h-8 w-8 place-items-center rounded-full glass hover:bg-primary hover:text-white transition-all">
-                    <ExternalLink className="h-3.5 w-3.5" />
-                  </a>
-                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="grid h-8 w-8 place-items-center rounded-full glass hover:bg-primary hover:text-white transition-all">
-                    <Github className="h-3.5 w-3.5" />
-                  </a>
-                </div>
-              </div>
-            </motion.article>
+            <ProjectCard key={p.title} project={p} index={i} />
           ))}
         </div>
 
@@ -317,6 +289,86 @@ export function Projects() {
         </div>
       </div>
     </section>
+  );
+}
+
+function ProjectCard({ project: p, index: i }: { project: Project; index: number }) {
+  const [imgError, setImgError] = useState(false);
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: i * 0.07 }}
+      className="group relative overflow-hidden rounded-3xl glass p-0 md:col-span-2"
+    >
+      {/* Hover effects — pointer-events-none so they don't block clicks on icons */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute -bottom-20 -right-20 h-56 w-56 rounded-full bg-primary/30 blur-3xl opacity-30 transition-all duration-700 group-hover:opacity-60 group-hover:scale-125" />
+
+      {/* Image at the TOP — proper aspect ratio with onError fallback */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface-elevated">
+        {imgError ? (
+          <div className="grid h-full w-full place-items-center text-muted-foreground">
+            <div className="flex flex-col items-center gap-2 text-xs">
+              <ImageOff className="h-6 w-6" />
+              <span>Preview unavailable</span>
+            </div>
+          </div>
+        ) : (
+          <img
+            src={p.image}
+            alt={p.title}
+            loading="lazy"
+            decoding="async"
+            onError={() => setImgError(true)}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
+      </div>
+
+      {/* Content below image */}
+      <div className="p-5">
+        <div className="flex items-center justify-between text-xs">
+          <span className="rounded-full bg-primary/15 px-3 py-1 text-primary">
+            {p.tag}
+          </span>
+          <span className="font-mono text-muted-foreground">0{i + 1}</span>
+        </div>
+
+        <h3 className="mt-3 font-display font-bold text-xl">
+          {p.title}
+        </h3>
+
+        <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+          {p.desc}
+        </p>
+
+        <div className="mt-4 flex gap-2">
+          <a
+            href={p.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit ${p.title} live site`}
+            title="Visit live site"
+            className="grid h-8 w-8 place-items-center rounded-full glass hover:bg-primary hover:text-white transition-all"
+          >
+            <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+          <a
+            href={p.github ?? p.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${p.title} on GitHub`}
+            title={p.github ? "View source on GitHub" : "View project page"}
+            className="grid h-8 w-8 place-items-center rounded-full glass hover:bg-primary hover:text-white transition-all"
+          >
+            <Github className="h-3.5 w-3.5" />
+          </a>
+        </div>
+      </div>
+    </motion.article>
   );
 }
 
@@ -476,14 +528,14 @@ export function Pricing() {
 
 /* ---------------- Tech Stack Marquee ---------------- */
 const partners = [
-  { name: "MeMa Digital Marketing Agency", logo: mema },
-  { name: "Gojo Guest House", logo: gojo },
-  { name: "Makiba Medication Center", logo: makilogo },
-  { name: "Ethealturf", logo: etheal },
-  { name: "Hema Woods", logo: hemalogo },
-  { name: "Wakene Food Complex", logo: wakene },
-  { name: "Lentebur Foreign Employment Agency", logo: lentebur },
-  { name: "Maedot ZeGola Consultancy", logo: maedot }
+  { name: "MeMa Digital Marketing Agency", logo: "/images/mema.jpg" },
+  { name: "Gojo Guest House", logo: "/images/gojo.jpg" },
+  { name: "Makiba Medication Center", logo: "/images/makiba-logo.jpg" },
+  { name: "Ethealturf", logo: "/images/etheal-logo.jpg" },
+  { name: "Hema Woods", logo: "/images/hema-logo.jpeg" },
+  { name: "Wakene Food Complex", logo: "/images/Wakene Logo.jpg" },
+  { name: "Lentebur Foreign Employment Agency", logo: "/images/lentebur.jpg" },
+  { name: "Maedot ZeGola Consultancy", logo: "/images/maedot.jpg" }
 ];
 export function Partners() {
   return (
@@ -852,8 +904,9 @@ export function Footer() {
       <div className="container mx-auto max-w-7xl px-6">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
-            <a href="#home" className="font-display text-3xl font-bold">
-              Mikiyas<span className="text-primary"> Taye</span>
+            <a href="#home" className="inline-flex items-center gap-3 font-display text-2xl font-bold">
+              <BrandMark className="h-9 w-9 shrink-0" />
+              <span>Mikiyas<span className="text-primary"> Taye</span></span>
             </a>
             <p className="mt-3 max-w-sm text-sm text-muted-foreground">
               Freelance developer & designer building premium digital products and websites for anyone in the world.

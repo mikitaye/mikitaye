@@ -15,6 +15,9 @@ dist-ssr
 api
 public/*
 !public/og-image.jpg
+!public/favicon.svg
+!public/images/
+!public/images/**
 .vinxi
 .tanstack/**
 .nitro
