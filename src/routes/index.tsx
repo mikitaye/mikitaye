@@ -31,8 +31,8 @@ function Index() {
     <HelmetProvider>
       {/* Favicon for browser tab */}
       <Helmet>
-        <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
-      </Helmet>
+      <link rel="icon" href="/icon.png" type="image/png" />      
+    </Helmet>
 
       <div className="relative noise">
         {/* SEO for entire site */}
